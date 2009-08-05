@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ "$VIRTUAL_ENV" = "" ]; then
+    echo "You must be in a virtualenv environment. Type workon for a list."
+    exit
+fi
+
 FILES=$VIRTUAL_ENV/src/*
 
 for f in $FILES

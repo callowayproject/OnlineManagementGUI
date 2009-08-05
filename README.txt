@@ -19,40 +19,22 @@ GETTING SET UP FOR THE FIRST TIME
 
 4. Upgrade to the latest version of the packages:
 
-    ./bin/upgrade.sh
+    ./bin/install.sh
 
-5. Link the source directory into the project folder for easier access
-
-    ln -s ~/.virtualenvs/omg/src/ externals
-
-
-WHAT YOU SHOULD DO PERIODICALLY
--------------------------------
-
-1. Switch to the correct virtual environment:
-
-    workon omg
-
-
-2. Upgrade to the latest version of the packages:
-
-    ./bin/upgrade.sh
 
 
 
 WHAT YOU SHOULD DO EVERY DAY
 ----------------------------
 
-1. Upgrade to the latest code:
-
-    git pull
-
-
-2. Switch to the correct virtual environment:
+1. Switch to the correct virtual environment:
 
     workon omg
 
+2. Upgrade to the latest code:
+
+    ./bin/upgrade.sh
 
 3. Start your local development server:
 
-    python manage.py runserver 0.0.0.0:8000
+    ./manage.py runserver 0.0.0.0:8000
