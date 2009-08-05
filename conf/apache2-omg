@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@washingtontimes.com
+        ServerName $$$$DEV_APP_HOST$$$$
+        ServerAlias media-$$$$DEV_APP_HOST$$$$
+        DocumentRoot /var/code/omg/media
+
+        WSGIDaemonProcess omg user=webdev group=webdev processes=3 threads=1 maximum-requests=1000 python-path=/home/webdev/.virtualenvs/omg/lib/python2.5/site-packages
+        WSGIProcessGroup omg
+        WSGIScriptAlias / /var/code/omg/conf/omg.wsgi
+</VirtualHost>
