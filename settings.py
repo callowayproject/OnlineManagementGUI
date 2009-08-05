@@ -73,7 +73,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.middleware.http.SetRemoteAddrFromForwardedFor',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.doc.XViewMiddleware',
@@ -107,6 +106,7 @@ INSTALLED_APPS = (
     'pagination',
     'south',
     'django_extensions',
+    'websetup',
 )
 
 SOUTH_AUTO_FREEZE_APP = True
