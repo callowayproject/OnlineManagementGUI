@@ -5,7 +5,7 @@ if [ "$VIRTUAL_ENV" = "" ]; then
 fi
 
 FILES=$VIRTUAL_ENV/src/*
-
+echo $FILES
 for f in $FILES
 do
     if [ -d $f ] 
