@@ -1,4 +1,4 @@
-http://media.djangoproject.com/releases/1.1/Django-1.1-beta-1.tar.gz
+http://media.djangoproject.com/releases/1.1/Django-1.1.tar.gz
 
 -e svn+http://svn.aeracode.org/svn/south/tags/0.5#egg=south
 
