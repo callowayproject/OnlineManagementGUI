@@ -11,11 +11,40 @@ from fabric.state import output
 output.everything = False
 env.warn_only=True
 env.abort=False
+
+
+def has_command(cmd):
+    """
+    Check if a command exists on a separate host
+    """
+    output = run('which %s' % cmd)
+    return not output.failed
+
+
+def install_package(install_cmd, package):
+    """
+    Install a package on a separate host
+    """
+    output = sudo("%s %s" % (install_cmd, package))
+    return not output.failed
+
+
 def test():
     env.host_string = '38.118.71.92'
     env.user = 'webdev'
-    output = run('ls -l')
-    return output
+    env.password = '' #put password here
+    command_list = ('charlie', 'ls', 'python')
+    for cmd in command_list:
+        if has_command(cmd):
+            print "Has %s" % cmd
+        else:
+            print "Needs %s" % cmd
+    package_list = ('dumbthing', 'apache2.2-common',)
+    for pkg in package_list:
+        if install_package('apt-get install', pkg):
+            print "Success installing: %s" % pkg
+        else:
+            print "Failure installing: %s." % pkg
 
 
-print test()
+test()
