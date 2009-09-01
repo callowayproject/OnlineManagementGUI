@@ -1,5 +1,6 @@
 http://media.djangoproject.com/releases/1.1/Django-1.1.tar.gz
 
+-e git+http://opensource.washingtontimes.com/git/public/pagetracker.git/#egg=pagetracker
 -e svn+http://svn.aeracode.org/svn/south/tags/0.5#egg=south
 -e git://fabfile.org/fabric.git#egg=fabric
 
