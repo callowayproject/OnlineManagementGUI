@@ -107,6 +107,7 @@ INSTALLED_APPS = (
     'south',
     'django_extensions',
     'websetup',
+    'pagetracker',
 )
 
 SOUTH_AUTO_FREEZE_APP = True
