@@ -102,7 +102,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.redirects',
     'django_ext',
-    'django_memcached',
     'pagination',
     'south',
     'django_extensions',
@@ -116,7 +115,20 @@ DJANGO_MEMCACHED_REQUIRE_STAFF = True
 
 CACHE_BACKEND = 'locmem:///'
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+if PROJECT_ROOT.startswith('/var/code'):
+    try:
+        from conf.MN_settings import *
+    except ImportError:
+        pass
+    try:
+        from conf.production_settings import *
+    except ImportError:
+        pass
+else:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass
+    
+if CACHE_BACKEND.startswith('memcached'):
+    INSTALLED_APPS += ('django_memcached',)
