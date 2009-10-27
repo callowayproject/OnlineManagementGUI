@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; Online Management GUI v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Online Management GUI v0.1 documentation" href="index.html" />
+    <link rel="next" title="Model Reference" href="reference/models.html" />
+    <link rel="prev" title="Creating Services" href="gettingstarted/creating_services.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>Online Management GUI v0.1 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Models</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="reference/models.html" title="Model Reference" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="gettingstarted/creating_services.html" title="Creating Services" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference external" href="gettingstarted/creating_services.html">Creating Services</a></li>
+<li class="toctree-l1 current"><a class="current reference external" href="">Models</a><ul>
+<li class="toctree-l2"><a class="reference external" href="#services-and-commands">Services and Commands</a></li>
+<li class="toctree-l2"><a class="reference external" href="#serveros-servicepackage-and-servicecommand">ServerOS, ServicePackage and ServiceCommand</a></li>
+<li class="toctree-l2"><a class="reference external" href="#servicepackage">ServicePackage</a></li>
+<li class="toctree-l2"><a class="reference external" href="#servicecommand">ServiceCommand</a></li>
+<li class="toctree-l2"><a class="reference external" href="#languagelibrary">LanguageLibrary</a></li>
+<li class="toctree-l2"><a class="reference external" href="#server">Server</a></li>
+<li class="toctree-l2"><a class="reference external" href="#website">WebSite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="reference/models.html">Model Reference</a></li>
+</ul>
+
+      <h3>This Page</h3>
+      <ul class="this-page-menu">
+        <li><a href="_sources/models.txt"
+               rel="nofollow">Show Source</a></li>
+      </ul>
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<span id="id1"></span><h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<div class="figure">
+<img alt="Schema using examples" src="_images/OMG_schema_example1.png" />
+<p class="caption">Here is a simple diagram of the how the classes connect, using example data
+to help illustrate the connections</p>
+</div>
+<div class="section" id="services-and-commands">
+<span id="models-service"></span><h2>Services and Commands<a class="headerlink" href="#services-and-commands" title="Permalink to this headline">¶</a></h2>
+<p><em>Services</em> are processes like Apache httpd, memcached and the like. A service may have <em>Commands</em> to do things like start it, stop it, and reload its configuration.</p>
+<p>For example <strong>Service</strong> Apache httpd has <strong>Command</strong>s start, stop, reload, status, and config_test.</p>
+<p>Services and commands do not include any implementation information. All implementation is done in the <a class="reference internal" href="#models-serveros"><em>ServerOS</em></a>.</p>
+</div>
+<div class="section" id="serveros-servicepackage-and-servicecommand">
+<span id="models-serveros"></span><h2>ServerOS, ServicePackage and ServiceCommand<a class="headerlink" href="#serveros-servicepackage-and-servicecommand" title="Permalink to this headline">¶</a></h2>
+<p>An operating system for a server. The ServerOS describes how to install system packages (using apt or yum for example), which packages are required</p>
+</div>
+<div class="section" id="servicepackage">
+<span id="models-servicepackage"></span><h2>ServicePackage<a class="headerlink" href="#servicepackage" title="Permalink to this headline">¶</a></h2>
+<p>The package or packages required to install the <a class="reference internal" href="#models-service"><em>Service</em></a> on to the <a class="reference internal" href="#models-serveros"><em>Server Operating System</em></a>. Installation of the Service will use the package manager commands indicated in the Server Operating System.</p>
+</div>
+<div class="section" id="servicecommand">
+<span id="models-servicecommand"></span><h2>ServiceCommand<a class="headerlink" href="#servicecommand" title="Permalink to this headline">¶</a></h2>
+<p>Commands for services based on the operating system.</p>
+</div>
+<div class="section" id="languagelibrary">
+<span id="models-languagelibrary"></span><h2>LanguageLibrary<a class="headerlink" href="#languagelibrary" title="Permalink to this headline">¶</a></h2>
+<p>A library for a language, typically installed with a language-specific tool</p>
+</div>
+<div class="section" id="server">
+<span id="models-server"></span><h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<p>A machine with services and web sites.</p>
+</div>
+<div class="section" id="website">
+<span id="models-website"></span><h2>WebSite<a class="headerlink" href="#website" title="Permalink to this headline">¶</a></h2>
+<p>A web site that is on one or more servers</p>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2009, Corey Oordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Models
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>

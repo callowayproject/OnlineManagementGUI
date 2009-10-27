@@ -1,0 +1,16 @@
+\BOOKMARK [0][-]{chapter.1}{Goals}{}
+\BOOKMARK [0][-]{chapter.2}{Creating a Server OS}{}
+\BOOKMARK [1][-]{section.2.1}{Defining ``How Things are Done''}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Defining ``How Services are Installed''}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{Defining ``How a Service Commands are Executed''}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Creating Services}{}
+\BOOKMARK [0][-]{chapter.4}{Models}{}
+\BOOKMARK [1][-]{section.4.1}{Services and Commands}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{ServerOS, ServicePackage and ServiceCommand}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{ServicePackage}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{ServiceCommand}{chapter.4}
+\BOOKMARK [1][-]{section.4.5}{LanguageLibrary}{chapter.4}
+\BOOKMARK [1][-]{section.4.6}{Server}{chapter.4}
+\BOOKMARK [1][-]{section.4.7}{WebSite}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Model Reference}{}
+\BOOKMARK [0][-]{chapter.6}{Indices and tables}{}

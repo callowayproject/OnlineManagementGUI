@@ -1,0 +1,17 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Goals}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Creating a Server OS}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Defining ``How Things are Done''}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Defining ``How Services are Installed''}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Defining ``How a Service Commands are Executed''}{6}{section.2.3}
+\contentsline {chapter}{\numberline {3}Creating Services}{9}{chapter.3}
+\contentsline {chapter}{\numberline {4}Models}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Services and Commands}{12}{section.4.1}
+\contentsline {section}{\numberline {4.2}ServerOS, ServicePackage and ServiceCommand}{12}{section.4.2}
+\contentsline {section}{\numberline {4.3}ServicePackage}{12}{section.4.3}
+\contentsline {section}{\numberline {4.4}ServiceCommand}{12}{section.4.4}
+\contentsline {section}{\numberline {4.5}LanguageLibrary}{12}{section.4.5}
+\contentsline {section}{\numberline {4.6}Server}{12}{section.4.6}
+\contentsline {section}{\numberline {4.7}WebSite}{12}{section.4.7}
+\contentsline {chapter}{\numberline {5}Model Reference}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Indices and tables}{15}{chapter.6}
