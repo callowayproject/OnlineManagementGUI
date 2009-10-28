@@ -59,3 +59,5 @@ Defining "How a Service Commands are Executed"
    
    .. image:: images/add_service_command.png
       :alt: Defining how this Server OS executes a command for a service.
+
+4. Click on the **Save** button.

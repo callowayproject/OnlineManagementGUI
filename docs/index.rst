@@ -12,7 +12,7 @@ Contents:
    :glob:
    
    goals
-   gettingstarted/*
+   gettingstarted/index
    models
    reference/*
 

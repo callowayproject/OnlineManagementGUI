@@ -165,8 +165,8 @@ class Server(models.Model):
     )
     default_services = models.ManyToManyField(Service, blank=True, verbose_name=_('Default Services'))
     default_libraries = models.ManyToManyField(LanguageLibrary, blank=True, verbose_name=_('Default Language Libraries'))
-    has_def_svc = models.BooleanField(_('has default services'), default=True)
-    has_def_lib = models.BooleanField(_('has default libraries'), default=True)
+    has_def_svc = models.BooleanField(_('has default services'), default=True, editable=False)
+    has_def_lib = models.BooleanField(_('has default libraries'), default=True, editable=False)
     
     def __unicode__(self):
         return self.name

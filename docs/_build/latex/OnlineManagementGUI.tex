@@ -10,7 +10,7 @@
 
 
 \title{Online Management GUI Documentation}
-\date{October 26, 2009}
+\date{October 27, 2009}
 \release{0.1}
 \author{Corey Oordt}
 \newcommand{\sphinxlogo}{}
@@ -154,68 +154,14 @@ Allow for multiple types of server operating systems, as long as they have a pac
 \end{enumerate}
 
 \resetcurrentobjects
-\hypertarget{--doc-gettingstarted/creating_serveros}{}
+\hypertarget{--doc-gettingstarted/index}{}
 
-\hypertarget{gettingstarted-creating-serveros}{}\chapter{Creating a Server OS}
-
-The server operating system is where the implementation of services is described. It also describes how services are installed and how you can tell if a service is in fact installed.
-
-There are three parts to defining a Server OS: \hyperlink{howthingsaredone}{\emph{Defining ``How Things are Done''}}, \hyperlink{howservicesareinstalled}{\emph{Defining ``How Services are Installed''}}, and \hyperlink{howaservicecommandsareexecuted}{\emph{Defining ``How a Service Commands are Executed''}}.
-
-
-\hypertarget{howthingsaredone}{}\section{Defining ``How Things are Done''}
-\begin{enumerate}
-\item {} 
-In the admin, click the \textbf{Add} button on the \textbf{ServerOSes} line.
-
-\includegraphics[width=507pt,height=149pt]{add_serveros.png}
-
-\item {} 
-In the top part of the form, enter the name of the operating system, the command to install a package and the command to find if a package is installed. The commands can use the placeholder \code{\%(package)s} for the package name; multiple times if necessary.
-
-\includegraphics[width=363pt,height=173pt]{add_serveros_form.png}
-
-In this case, \code{Ubunutu}, the command to install a package is \code{apt-get install -ym \%(package)s}. The command to find whether or not a package is installed is more complex. The command to list all installed packages \code{dpkg -l \%(package)s} is piped (\code{\textbar{}}) through \code{grep \%(package)s} to find the package name in the list.
-
-\end{enumerate}
-\hypertarget{howservicesareinstalled}{}
-
-\section{Defining ``How Services are Installed''}
-\begin{enumerate}
-\item {} 
-Select the service from the popup menu in the \textbf{Service} column.
-
-\item {} 
-Type in the name of the package or packages that are required to implement this service on this ServerOS in the \textbf{Package} column. Separate packages by spaces.
-
-For example, to implement \code{Apache 2.2} on \code{Ubuntu}, the packages required are: \code{apache2.2-common apache2-mpm-worker apache2-utils apache2 libapache2-mod-wsgi}.
-
-\includegraphics[width=483pt,height=80pt]{add_service_package.png}
-
-\end{enumerate}
-\hypertarget{howaservicecommandsareexecuted}{}
-
-\section{Defining ``How a Service Commands are Executed''}
-\begin{enumerate}
-\item {} 
-Select the service's command from the popup menu in the \textbf{Command} column.
-
-\item {} 
-Type in the command to execute it on this Server OS in the \textbf{Command string} column.
-
-\item {} 
-Make sure the checkbox in the \textbf{Must sudo} column is checked (the default) if this command must be executed with superuser privileges, or unchecked if it does not.
-
-For example to implement the \code{Apache 2.2 start} command on \code{Ubuntu}, the string \code{/etc/init.d/apache2 start} must be executed with superuser privileges.
-
-\includegraphics[width=653pt,height=144pt]{add_service_command.png}
-
-\end{enumerate}
+\hypertarget{gettingstarted-index}{}\chapter{Getting Started}
 
 \resetcurrentobjects
 \hypertarget{--doc-gettingstarted/creating_services}{}
 
-\hypertarget{gettingstarted-creating-services}{}\chapter{Creating Services}
+\hypertarget{gettingstarted-creating-services}{}\section{Creating Services}
 
 Services are very simple to create. When you define a service, you will also define the commands that apply to the service, such as start, stop, and reload.
 
@@ -242,6 +188,110 @@ If you want to add more commands, click on the \textbf{Save and Continue Editing
 Click on the \textbf{Save} button.
 
 \end{enumerate}
+
+\resetcurrentobjects
+\hypertarget{--doc-gettingstarted/creating_languagelibraries}{}
+
+\hypertarget{gettingstarted-creating-languagelibraries}{}\section{Defining Language Libraries}
+
+Language libraries are programming code libraries that are installed using a programming language-specific tool and are therefore operating system agnostic. \code{easy\_install} for python, \code{gem} for ruby, \code{cpan} for perl, and \code{pear} for PHP are all examples of these language-specific tools.
+
+
+\subsection{Defining a New Language Library}
+\begin{enumerate}
+\item {} 
+In the admin, click the \textbf{Add} button on the \textbf{Language Library} line.
+
+\includegraphics{add_languagelibrary.png}
+
+\item {} 
+Select a programming language from the drop down menu.
+
+\item {} 
+Enter the name of the library.
+
+\item {} 
+Enter the command to install the library.
+
+\item {} 
+Enter the command to see if the library is installed.
+
+\item {} 
+Uncheck the \textbf{Must sudo} checkbox if the command does not require root privileges for installation.
+
+\includegraphics{add_languagelibrary_form.png}
+
+\item {} 
+Click on the \textbf{Save} button.
+
+\end{enumerate}
+
+\resetcurrentobjects
+\hypertarget{--doc-gettingstarted/creating_serveros}{}
+
+\hypertarget{gettingstarted-creating-serveros}{}\section{Creating a Server OS}
+
+The server operating system is where the implementation of services is described. It also describes how services are installed and how you can tell if a service is in fact installed.
+
+There are three parts to defining a Server OS: \hyperlink{howthingsaredone}{\emph{Defining ``How Things are Done''}}, \hyperlink{howservicesareinstalled}{\emph{Defining ``How Services are Installed''}}, and \hyperlink{howaservicecommandsareexecuted}{\emph{Defining ``How a Service Commands are Executed''}}.
+
+
+\hypertarget{howthingsaredone}{}\subsection{Defining ``How Things are Done''}
+\begin{enumerate}
+\item {} 
+In the admin, click the \textbf{Add} button on the \textbf{ServerOSes} line.
+
+\includegraphics{add_serveros.png}
+
+\item {} 
+In the top part of the form, enter the name of the operating system, the command to install a package and the command to find if a package is installed. The commands can use the placeholder \code{\%(package)s} for the package name; multiple times if necessary.
+
+\includegraphics{add_serveros_form.png}
+
+In this case, \code{Ubunutu}, the command to install a package is \code{apt-get install -ym \%(package)s}. The command to find whether or not a package is installed is more complex. The command to list all installed packages \code{dpkg -l \%(package)s} is piped (\code{\textbar{}}) through \code{grep \%(package)s} to find the package name in the list.
+
+\end{enumerate}
+\hypertarget{howservicesareinstalled}{}
+
+\subsection{Defining ``How Services are Installed''}
+\begin{enumerate}
+\item {} 
+Select the service from the popup menu in the \textbf{Service} column.
+
+\item {} 
+Type in the name of the package or packages that are required to implement this service on this ServerOS in the \textbf{Package} column. Separate packages by spaces.
+
+For example, to implement \code{Apache 2.2} on \code{Ubuntu}, the packages required are: \code{apache2.2-common apache2-mpm-worker apache2-utils apache2 libapache2-mod-wsgi}.
+
+\includegraphics{add_service_package.png}
+
+\end{enumerate}
+\hypertarget{howaservicecommandsareexecuted}{}
+
+\subsection{Defining ``How a Service Commands are Executed''}
+\begin{enumerate}
+\item {} 
+Select the service's command from the popup menu in the \textbf{Command} column.
+
+\item {} 
+Type in the command to execute it on this Server OS in the \textbf{Command string} column.
+
+\item {} 
+Make sure the checkbox in the \textbf{Must sudo} column is checked (the default) if this command must be executed with superuser privileges, or unchecked if it does not.
+
+For example to implement the \code{Apache 2.2 start} command on \code{Ubuntu}, the string \code{/etc/init.d/apache2 start} must be executed with superuser privileges.
+
+\includegraphics{add_service_command.png}
+
+\item {} 
+Click on the \textbf{Save} button.
+
+\end{enumerate}
+
+\resetcurrentobjects
+\hypertarget{--doc-gettingstarted/creating_servers}{}
+
+\hypertarget{gettingstarted-creating-servers}{}\section{Creating a Server Instance}
 
 \resetcurrentobjects
 \hypertarget{--doc-models}{}

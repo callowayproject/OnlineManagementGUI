@@ -20,8 +20,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Online Management GUI v0.1 documentation" href="../index.html" />
-    <link rel="next" title="Creating Services" href="creating_services.html" />
-    <link rel="prev" title="Goals" href="../goals.html" /> 
+    <link rel="next" title="Creating a Server Instance" href="creating_servers.html" />
+    <link rel="prev" title="Defining Language Libraries" href="creating_languagelibraries.html" /> 
   </head>
   <body>
 <div id="docstitle">
@@ -33,8 +33,8 @@
 		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
 		<li id="page_buttons">
 			<div class="headerButton"><a href="../genindex.html" title="General Index" accesskey="I">index</a></div>
-			<div class="headerButton"><a href="creating_services.html" title="Creating Services" accesskey="N">next</a></div>
-			<div class="headerButton"><a href="../goals.html" title="Goals" accesskey="P">previous</a></div>
+			<div class="headerButton"><a href="creating_servers.html" title="Creating a Server Instance" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="creating_languagelibraries.html" title="Defining Language Libraries" accesskey="P">previous</a></div>
 		</li>
 	</ul>
 </div>
@@ -44,12 +44,14 @@
 	<ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul>
 	<ul class="current">
 <li class="toctree-l1"><a class="reference external" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference external" href="creating_languagelibraries.html">Defining Language Libraries</a></li>
 <li class="toctree-l1 current"><a class="current reference external" href="">Creating a Server OS</a><ul>
 <li class="toctree-l2"><a class="reference external" href="#defining-how-things-are-done">Defining &#8220;How Things are Done&#8221;</a></li>
 <li class="toctree-l2"><a class="reference external" href="#defining-how-services-are-installed">Defining &#8220;How Services are Installed&#8221;</a></li>
 <li class="toctree-l2"><a class="reference external" href="#defining-how-a-service-commands-are-executed">Defining &#8220;How a Service Commands are Executed&#8221;</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="creating_servers.html">Creating a Server Instance</a></li>
 <li class="toctree-l1"><a class="reference external" href="creating_services.html">Creating Services</a></li>
 <li class="toctree-l1"><a class="reference external" href="../models.html">Models</a></li>
 <li class="toctree-l1"><a class="reference external" href="../reference/models.html">Model Reference</a></li>
@@ -95,10 +97,10 @@
 <span id="howthingsaredone"></span><h2>Defining &#8220;How Things are Done&#8221;<a class="headerlink" href="#defining-how-things-are-done" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">In the admin, click the <strong>Add</strong> button on the <strong>ServerOSes</strong> line.</p>
-<img alt="Click the Add button on the ServerOSes line." src="../_images/add_serveros.png" style="width: 507pt; height: 149pt;" />
+<img alt="Click the Add button on the ServerOSes line." src="../_images/add_serveros.png" />
 </li>
 <li><p class="first">In the top part of the form, enter the name of the operating system, the command to install a package and the command to find if a package is installed. The commands can use the placeholder <tt class="docutils literal"><span class="pre">%(package)s</span></tt> for the package name; multiple times if necessary.</p>
-<img alt="The Add ServerOS form filled out." src="../_images/add_serveros_form.png" style="width: 363pt; height: 173pt;" />
+<img alt="The Add ServerOS form filled out." src="../_images/add_serveros_form.png" />
 <p>In this case, <tt class="docutils literal"><span class="pre">Ubunutu</span></tt>, the command to install a package is <tt class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">-ym</span> <span class="pre">%(package)s</span></tt>. The command to find whether or not a package is installed is more complex. The command to list all installed packages <tt class="docutils literal"><span class="pre">dpkg</span> <span class="pre">-l</span> <span class="pre">%(package)s</span></tt> is piped (<tt class="docutils literal"><span class="pre">|</span></tt>) through <tt class="docutils literal"><span class="pre">grep</span> <span class="pre">%(package)s</span></tt> to find the package name in the list.</p>
 </li>
 </ol>
@@ -110,7 +112,7 @@
 </li>
 <li><p class="first">Type in the name of the package or packages that are required to implement this service on this ServerOS in the <strong>Package</strong> column. Separate packages by spaces.</p>
 <p>For example, to implement <tt class="docutils literal"><span class="pre">Apache</span> <span class="pre">2.2</span></tt> on <tt class="docutils literal"><span class="pre">Ubuntu</span></tt>, the packages required are: <tt class="docutils literal"><span class="pre">apache2.2-common</span> <span class="pre">apache2-mpm-worker</span> <span class="pre">apache2-utils</span> <span class="pre">apache2</span> <span class="pre">libapache2-mod-wsgi</span></tt>.</p>
-<img alt="Defining how a service is installed." src="../_images/add_service_package.png" style="width: 483pt; height: 80pt;" />
+<img alt="Defining how a service is installed." src="../_images/add_service_package.png" />
 </li>
 </ol>
 </div>
@@ -123,7 +125,9 @@
 </li>
 <li><p class="first">Make sure the checkbox in the <strong>Must sudo</strong> column is checked (the default) if this command must be executed with superuser privileges, or unchecked if it does not.</p>
 <p>For example to implement the <tt class="docutils literal"><span class="pre">Apache</span> <span class="pre">2.2</span> <span class="pre">start</span></tt> command on <tt class="docutils literal"><span class="pre">Ubuntu</span></tt>, the string <tt class="docutils literal"><span class="pre">/etc/init.d/apache2</span> <span class="pre">start</span></tt> must be executed with superuser privileges.</p>
-<img alt="Defining how this Server OS executes a command for a service." src="../_images/add_service_command.png" style="width: 653pt; height: 144pt;" />
+<img alt="Defining how this Server OS executes a command for a service." src="../_images/add_service_command.png" />
+</li>
+<li><p class="first">Click on the <strong>Save</strong> button.</p>
 </li>
 </ol>
 </div>
